@@ -1,0 +1,33 @@
+.center_this{
+	text-align: center;
+}
+.right_this{
+	text-align: right;
+}
+.left_this{
+	text-align: left;
+}
+.accenture_logo{
+	margin-top:20px;
+	margin-bottom:20px;
+	color:#ffffff;
+}
+
+.accenture_logo img{
+	height:40px;
+}
+.signin_container{
+	margin-top:200px;
+	width:300px;
+	margin-left:auto;
+	margin-right:auto;
+}
+#boi_white{
+	margin-top:5px;
+	margin-left:0px;
+}
+#dash{
+	height:20px;
+	margin-top:20px;
+	margin-left:20px;
+}

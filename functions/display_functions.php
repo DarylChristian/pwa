@@ -50,7 +50,7 @@ function display_live_buckets_board()
         <a href=#><span class=\"glyphicon glyphicon-chevron-right\"></span></a>
     </h3>
  <div class=\"table-responsive\">
-            <table class=\"table table-hover  table-fixedheader\">
+            <table class=\"table table-condensed  table-fixedheader\">
               <thead>
                 <tr class=\"info\">
                   <th class=\"col-md-3\">My Buckets</th>
@@ -134,5 +134,7 @@ function display_live_buckets_board()
 
           </div>";
 }
+
+
 
 ?>

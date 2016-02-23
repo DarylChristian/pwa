@@ -76,8 +76,8 @@
             <li><a href="#">Analytics</a></li>
             <li><a href="#">Export</a></li>
           </ul>
-          
         </div>
+
         <?php
           if(!isset($_GET['page']))
           {
@@ -94,7 +94,7 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/jquery-1.12.0.min.js"></script>
+    <script src="js/jquery-2.2.1.min.js"></script>
     <script src="js/ajax_me.js"></script>
     <script src="js/validator.js"></script>
     <script>window.jQuery || document.write('<script src="js/jquery-1.12.0.min.js"><\/script>')</script>
@@ -122,6 +122,7 @@
             }
         });
     });
+
 
    
   </script>

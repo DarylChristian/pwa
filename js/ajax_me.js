@@ -53,3 +53,14 @@ $('#bucket_class').change(function(){
 $('#add_bucket_name').change(function(){
     $('#btn_add_bucket').removeClass('disabled');
 });
+
+//checkbox checkAll
+$("#checkAll1").change(function () {
+    $(".stage1").prop('checked', $(this).prop("checked"));
+});
+$("#checkAll2").change(function () {
+    $(".stage2").prop('checked', $(this).prop("checked"));
+});
+$("#checkAll3").change(function () {
+    $(".stage3").prop('checked', $(this).prop("checked"));
+});

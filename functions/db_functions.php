@@ -146,18 +146,17 @@ function getLiveBuckets($class, $status, $collapse_name)
 
 		echo "
 		<tr>  
-            <td class=\"col-md-3 no_border\"><div class=\"collapse $class_mod align-me-right \" >$bucket_name $ticket_name</div></td>
-            <td class=\"col-md-1\"><div class=\"collapse $class_mod \" ><input type=\"text\" class=\"form-control no-border numbersOnly\" disabled value=\"9\" /></div></td>
-            <td class=\"col-md-1\"><div class=\"collapse $class_mod \" ><input type=\"text\" class=\"form-control no-border numbersOnly\" name=\"time_entry\" /></div></td>
-            <td class=\"col-md-1\"><div class=\"collapse $class_mod \" ><input type=\"text\" class=\"form-control no-border numbersOnly\" name=\"time_entry\" /></div></td>
-            <td class=\"col-md-1\"><div class=\"collapse $class_mod \" ><input type=\"text\" class=\"form-control no-border numbersOnly\" name=\"time_entry\" /></div></td>
-            <td class=\"col-md-1\"><div class=\"collapse $class_mod \" ><input type=\"text\" class=\"form-control no-border numbersOnly\" name=\"time_entry\" /></div></td>
-            <td class=\"col-md-1\"><div class=\"collapse $class_mod \" ><input type=\"text\" class=\"form-control no-border numbersOnly\" name=\"time_entry\" /></div></td>
-            <td class=\"col-md-1\"><div class=\"collapse $class_mod \" ><input type=\"text\" class=\"form-control no-border numbersOnly\" name=\"time_entry\" /></div></td>
-            <td class=\"col-md-1\"><div class=\"collapse $class_mod \" ><input type=\"text\" class=\"form-control no-border numbersOnly\" name=\"time_entry\" /></div></td>
-            <td class=\"col-md-1\"><div class=\"collapse $class_mod \" ><span class=\"glyphicon glyphicon-edit center \"></div></td>
-        </tr>	
-        	";
+            <td class=\"col-md-3 no_border zeroPadding\"><div class=\"collapse $class_mod align-me-right withPadding2\" >$bucket_name $ticket_name</div></td>
+            <td class=\"col-md-1 zeroPadding\"><div class=\"collapse $class_mod withPadding\" ><input type=\"text\" class=\"form-control numbersOnly\" disabled value=\"9\" /></div></td>
+            <td class=\"col-md-1 zeroPadding\"><div class=\"collapse $class_mod withPadding\" ><input type=\"text\" class=\"form-control numbersOnly\" name=\"time_entry\" /></div></td>
+            <td class=\"col-md-1 zeroPadding\"><div class=\"collapse $class_mod withPadding\" ><input type=\"text\" class=\"form-control numbersOnly\" name=\"time_entry\" /></div></td>
+            <td class=\"col-md-1 zeroPadding\"><div class=\"collapse $class_mod withPadding\" ><input type=\"text\" class=\"form-control numbersOnly\" name=\"time_entry\" /></div></td>
+            <td class=\"col-md-1 zeroPadding\"><div class=\"collapse $class_mod withPadding\" ><input type=\"text\" class=\"form-control numbersOnly\" name=\"time_entry\" /></div></td>
+            <td class=\"col-md-1 zeroPadding\"><div class=\"collapse $class_mod withPadding\" ><input type=\"text\" class=\"form-control numbersOnly\" name=\"time_entry\" /></div></td>
+            <td class=\"col-md-1 zeroPadding\"><div class=\"collapse $class_mod withPadding\" ><input type=\"text\" class=\"form-control numbersOnly\" name=\"time_entry\" /></div></td>
+            <td class=\"col-md-1 zeroPadding\"><div class=\"collapse $class_mod withPadding\" ><input type=\"text\" class=\"form-control numbersOnly\" name=\"time_entry\" /></div></td>
+            <td class=\"col-md-1 zeroPadding\"><div class=\"collapse $class_mod withPadding\" ><span class=\"glyphicon glyphicon-edit center \"></div></td>
+        </tr>";
 	}
 }
 function getTicketType($id)
@@ -193,25 +192,25 @@ function getLiveTicketHeader($ticket_type, $ticket_string)//$ticket_type= FOF = 
 		$ticket_type = $row['ticket_type'];
 		$ticket_type_string = getTicketType($ticket_type);
 		$class_mod = $ticket_string."$id";
+		$class_mod_btn = $class_mod."btn";
 
 		echo "
-			<tr data-toggle=\"collapse\" data-target=\".$class_mod\" class=\"clickable\" >
-                  <td class='col-md-3'  >$ticket_type_string $ticket_name</td>
+			<tr >
+                  <td class='col-md-3'   data-toggle=\"collapse\"  data-target=\".$class_mod\" >$ticket_type_string $ticket_name</td>
                   <td colspan=9 class=\"color-gray col-md-9\">
                       <div class=\"align-me-right\"><div class=\"dropdown\">
                       <button class=\"btn btn-default btn-xs dropdown-toggle\" type=\"button\" id=\"dropdownMenu1\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"true\">
                         <span class=\"caret\"></span>
                       </button>
                       <ul class=\"dropdown-menu dropdown-menu-right\" aria-labelledby=\"dropdownMenu1\">
-                        <li><a href=\"#\">Action</a></li>
-                        <li><a href=\"#\">Another action</a></li>
-                        <li><a href=\"#\">Something else here</a></li>
+                        <li><a href=\"#\">Archive Bucket</a></li>
                         <li role=\"separator\" class=\"divider\"></li>
-                        <li><a href=\"#\">Separated link</a></li>
+                        <li><a href=\"#\">Delete Bucket</a></li>
                       </ul>
                     </div></div>
                   </td>
                 </tr>
+
      			";
 			//getLiveTicketBody($id, $class_mod);
      	$select2 = "SELECT * FROM pwa_personal_buckets WHERE ticket_name = $id ORDER BY stage_id";
@@ -221,20 +220,20 @@ function getLiveTicketHeader($ticket_type, $ticket_string)//$ticket_type= FOF = 
 			$stage_id = $row2['stage_id'];
 			$stage_name = getStageName($stage_id);
 			echo "
-				<tr class=\"collapse  $class_mod\">  
-					<!--
-                   <td class=\"col-md-3 no_border\"><div class=\"collapse $class_mod align-me-right \" >$stage_name</div></td>
-                   <td class=\"col-md-1\"><div class=\"collapse $class_mod\" ><input type=\"text\" class=\"form-control no-border numbersOnly\" disabled value=\"9\" /></div></td>
-                   <td class=\"col-md-1\"><div class=\"collapse $class_mod\" ><input type=\"text\" class=\"form-control no-border numbersOnly\" name=\"time_entry\" /></div></td>
-                   <td class=\"col-md-1\"><div class=\"collapse $class_mod\" ><input type=\"text\" class=\"form-control no-border numbersOnly\" name=\"time_entry\" /></div></td>
-                   <td class=\"col-md-1\"><div class=\"collapse $class_mod\" ><input type=\"text\" class=\"form-control no-border numbersOnly\" name=\"time_entry\" /></div></td>
-                   <td class=\"col-md-1\"><div class=\"collapse $class_mod\" ><input type=\"text\" class=\"form-control no-border numbersOnly\" name=\"time_entry\" /></div></td>
-                   <td class=\"col-md-1\"><div class=\"collapse $class_mod\" ><input type=\"text\" class=\"form-control no-border numbersOnly\" name=\"time_entry\" /></div></td>
-                   <td class=\"col-md-1\"><div class=\"collapse $class_mod\" ><input type=\"text\" class=\"form-control no-border numbersOnly\" name=\"time_entry\" /></div></td>
-                   <td class=\"col-md-1\"><div class=\"collapse $class_mod\" ><input type=\"text\" class=\"form-control no-border numbersOnly\" name=\"time_entry\" /></div></td>
-                   <td class=\"col-md-1\"><div class=\"collapse $class_mod\" ><span class=\"glyphicon glyphicon-edit center \"></div></td>
-                   -->
-
+				<tr class=' no-border'>  
+					
+                   <td class=\"col-md-3 zeroPadding\"><div class=\"collapse $class_mod align-me-right withPadding2\" >$stage_name</div></td>
+                   <td class=\"col-md-1 zeroPadding\"><div class=\"collapse $class_mod withPadding\" ><input type=\"text\" class=\"form-control  numbersOnly\" disabled value=\"9\" /></div></td>
+                   <td class=\"col-md-1 zeroPadding\"><div class=\"collapse $class_mod withPadding\" ><input type=\"text\" class=\"form-control  numbersOnly\" name=\"time_entry\" /></div></td>
+                   <td class=\"col-md-1 zeroPadding\"><div class=\"collapse $class_mod withPadding\" ><input type=\"text\" class=\"form-control  numbersOnly\" name=\"time_entry\" /></div></td>
+                   <td class=\"col-md-1 zeroPadding\"><div class=\"collapse $class_mod withPadding\" ><input type=\"text\" class=\"form-control  numbersOnly\" name=\"time_entry\" /></div></td>
+                   <td class=\"col-md-1 zeroPadding\"><div class=\"collapse $class_mod withPadding\" ><input type=\"text\" class=\"form-control  numbersOnly\" name=\"time_entry\" /></div></td>
+                   <td class=\"col-md-1 zeroPadding\"><div class=\"collapse $class_mod withPadding\" ><input type=\"text\" class=\"form-control  numbersOnly\" name=\"time_entry\" /></div></td>
+                   <td class=\"col-md-1 zeroPadding\"><div class=\"collapse $class_mod withPadding\" ><input type=\"text\" class=\"form-control  numbersOnly\" name=\"time_entry\" /></div></td>
+                   <td class=\"col-md-1 zeroPadding\"><div class=\"collapse $class_mod withPadding\" ><input type=\"text\" class=\"form-control  numbersOnly\" name=\"time_entry\" /></div></td>
+                   <td class=\"col-md-1 zeroPadding\"><div class=\"collapse $class_mod withPadding\" ><span class=\"glyphicon glyphicon-edit center withPadding2 \"></div></td>
+                   
+                   <!--
                    <td class=\"col-md-3 no_border\">$stage_name</td>
                    <td class=\"col-md-1\"><input type=\"text\" class=\"form-control no-border numbersOnly\" disabled value=\"9\" /></td>
                    <td class=\"col-md-1\"><input type=\"text\" class=\"form-control no-border numbersOnly\" name=\"time_entry\" /></td>
@@ -245,7 +244,9 @@ function getLiveTicketHeader($ticket_type, $ticket_string)//$ticket_type= FOF = 
                    <td class=\"col-md-1\"><input type=\"text\" class=\"form-control no-border numbersOnly\" name=\"time_entry\" /></td>
                    <td class=\"col-md-1\"><input type=\"text\" class=\"form-control no-border numbersOnly\" name=\"time_entry\" /></td>
                    <td class=\"col-md-1\"><span class=\"glyphicon glyphicon-edit center \"></div></td>
+                   -->
                  </tr>
+                 
                 ";
      	}
 	}

@@ -78,8 +78,8 @@ function display_live_buckets_board()
                   <td class=\"col-md-1 centered\">0 hrs</td>
                   <td class=\"col-md-1 centered\"></td>
                 </tr>
-                <tr class=\"color-gray\">
-                  <td data-toggle=\"collapse\" class=\"col-md-3\" data-target=\".ooo1\">Out of Office</td>
+                <tr class=\"color-gray\"  data-toggle=\"collapse\"  data-target=\".ooo1\">
+                  <td class=\"col-md-3\">Out of Office</td>
                   <td colspan=9 class=\" col-md-9\">
                   </td>
                 </tr>

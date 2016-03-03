@@ -219,3 +219,12 @@ overridden elsewhere.
    background-color:#2d89ef;
   
 }
+.zeroPadding {
+    padding: 0 !important;
+}
+.withPadding{
+  padding: 5px;
+}
+.withPadding2{
+  padding: 10px;
+}
